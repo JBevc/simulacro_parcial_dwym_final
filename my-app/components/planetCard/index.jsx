@@ -3,9 +3,10 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function PlanetCard({ props }) {
   const navigation = useNavigation();
+  const id = props.id;
 
   function goToDetails() {
-    navigation.navigate("PlanetInfo", props.id);
+    navigation.navigate("PlanetInfo", { id });
   }
 
   return (

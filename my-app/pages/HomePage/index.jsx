@@ -40,7 +40,7 @@ export default function HomePage() {
         <FlatList
           data={planets}
           renderItem={({ item }) => <PlanetCard props={item} />}
-          keyExtractor={(props) => props.id}
+          keyExtractor={(item) => item.id}
         />
       </View>
       <View style={styles.buttonsContainer}>
