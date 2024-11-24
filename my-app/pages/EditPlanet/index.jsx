@@ -14,13 +14,13 @@ import { useState, useEffect } from "react";
 export default function EditPlanet({ route }) {
   const navigation = useNavigation();
   const { id } = route.params;
-  const [planet, setPlanet] = useState([]);
+  // const [planet, setPlanet] = useState([]);
 
-  const [newPlanet, setNewPlanet] = useState(planet?.name);
-  const [image, setImage] = useState(planet?.image);
-  const [description, setDescription] = useState(planet?.description);
-  const [moon, setMoon] = useState(planet?.moon);
-  const [moonNames, setMoonNames] = useState(String(planet?.moon_names));
+  const [newPlanet, setNewPlanet] = useState("");
+  const [image, setImage] = useState("");
+  const [description, setDescription] = useState("");
+  const [moon, setMoon] = useState("");
+  const [moonNames, setMoonNames] = useState("");
 
   const getPlanet = async () => {
     try {
@@ -30,7 +30,13 @@ export default function EditPlanet({ route }) {
 
       const data = await response.json();
       console.log("data response get planet: ", data);
-      setPlanet(data);
+
+      // Establecer valores iniciales para los estados
+      setNewPlanet(data.name);
+      setImage(data.image);
+      setDescription(data.description);
+      setMoon(String(data.moons));
+      setMoonNames((data.moon_names || []).join(", "));
 
       if (!response.ok) throw new Error("Error en la respuesta");
       return data;
@@ -41,10 +47,10 @@ export default function EditPlanet({ route }) {
 
   useEffect(() => {
     getPlanet();
-  }, []);
+  }, [id]);
 
   function cancel() {
-    navigation.navigate("HomePage");
+    navigation.navigate("PlanetInfo", { id });
   }
 
   function processNames(names) {
@@ -90,7 +96,7 @@ export default function EditPlanet({ route }) {
         <View style={styles.form}>
           <Text style={styles.text}> Name</Text>
           <TextInput
-            placeholder={planet?.name}
+            value={newPlanet}
             placeholderTextColor="#669bbc"
             onChangeText={(text) => setNewPlanet(text)}
             style={styles.input}
@@ -100,7 +106,7 @@ export default function EditPlanet({ route }) {
         <View style={styles.form}>
           <Text style={styles.text}> Image (url)</Text>
           <TextInput
-            placeholder={planet?.image}
+            value={image}
             onChangeText={(text) => setImage(text)}
             placeholderTextColor="#669bbc"
             style={styles.input}
@@ -110,7 +116,7 @@ export default function EditPlanet({ route }) {
         <View style={styles.form}>
           <Text style={styles.text}> Description</Text>
           <TextInput
-            placeholder={planet?.description}
+            value={description}
             placeholderTextColor="#669bbc"
             onChangeText={(text) => setDescription(text)}
             style={styles.input}
@@ -120,7 +126,7 @@ export default function EditPlanet({ route }) {
         <View style={styles.form}>
           <Text style={styles.text}> Moons amount</Text>
           <TextInput
-            placeholder={String(planet?.moons)}
+            value={moon}
             keyboardType="numeric"
             onChangeText={(text) => setMoon(text)}
             placeholderTextColor="#669bbc"
@@ -131,7 +137,8 @@ export default function EditPlanet({ route }) {
         <View style={styles.form}>
           <Text style={styles.text}> Moons names:</Text>
           <TextInput
-            placeholder={String(planet?.moon_names)}
+            value={moonNames}
+            maxLength={40}
             onChangeText={(text) => setMoonNames(text)}
             placeholderTextColor="#669bbc"
             style={styles.input}

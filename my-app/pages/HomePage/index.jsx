@@ -124,8 +124,8 @@ const styles = StyleSheet.create({
     },
   },
   buttonText: {
-    fontSize: 16,
-    fontWeight: "500",
+    fontSize: 14,
+    fontWeight: "600",
     color: "white",
   },
   buttonAdd: {
@@ -136,6 +136,8 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       alignItems: "center", // Alineado a la izquierda
       borderRadius: 30,
+      display: "flex",
+      flexDirection: "row",
     },
     ios: {
       backgroundColor: "#4c956c", // Fondo verde
@@ -146,6 +148,8 @@ const styles = StyleSheet.create({
       // no le agrego texto negro porque queda feo
       alignContent: "center",
       borderRadius: 30,
+      display: "flex",
+      flexDirection: "row",
     },
   },
   buttonChangeOrder: {
@@ -156,6 +160,7 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     justifyContent: "center",
+    flexDirection: "row",
     borderRadius: 30,
   },
 });

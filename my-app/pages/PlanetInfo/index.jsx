@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { useState, useEffect } from "react";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+
 import { useNavigation } from "@react-navigation/native";
 
 export default function PlanetInfo({ route }) {
@@ -196,6 +197,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 30,
+    display: "flex",
+    flexDirection: "row",
   },
   buttonDelete: {
     backgroundColor: "#e63946",
@@ -206,9 +209,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 30,
+    display: "flex",
+    flexDirection: "row",
   },
   backIcon: {
-    color: "#669bbc",
+    color: "#778da9",
     fontSize: 18,
   },
   goBack: {

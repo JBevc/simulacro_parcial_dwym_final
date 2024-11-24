@@ -119,16 +119,6 @@
         "Psamathe"
       ],
       "image": "https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg"
-    },
-    {
-      "id": "a126",
-      "name": "Tatooine",
-      "image": "https://cdnb.artstation.com/p/marketplace/presentation_assets/000/692/587/large/file.jpg?1611445084",
-      "description": "Tatooine is a fictional desert planet that appears in the Star Wars franchise. It is a beige-colored, desolate world orbiting a pair of binary stars, and inhabited by human settlers and a variety of other life forms.",
-      "moons": 5,
-      "moon_names": [
-        "undefined"
-      ]
     }
   ]
 }
