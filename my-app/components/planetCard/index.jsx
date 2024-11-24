@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     borderColor: "white",
     padding: 5,
     margin: 10,
-    borderRadius: 10,
+    borderRadius: 20,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 30,
     color: "white",
-    fontWeight: "200",
+    fontWeight: "300",
     marginLeft: 40,
   },
 });
